@@ -166,6 +166,7 @@ footer {
 
 .footer-desc {
   font-size: 1.4rem;
+  font-weight: 600;
   color: var(--black-2);
   margin-bottom: 2rem;
 }
@@ -200,7 +201,7 @@ footer {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
   color: var(--black-2);
-  font-family: Raleway sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   line-height: 1.4em;
 }
@@ -303,7 +304,7 @@ footer {
 
 .storeinfo-title {
   font-size: 1.4rem;
-  font-family: Poppins sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   margin-bottom: 0.5rem;
   color: var(--black-1);
@@ -311,7 +312,7 @@ footer {
 
 .storeinfo-text {
   font-size: 1.4rem;
-  font-family: Raleway sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: var(--black-2);
 }
 
@@ -455,7 +456,7 @@ footer {
 
 .form-group label {
   font-size: 1.6rem;
-  font-family: Poppins sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: var(--black-2);
   font-weight: 500;
 }
@@ -467,7 +468,7 @@ footer {
   border: none;
   background-color: var(--Lightgreen-1);
   font-size: 1.4rem;
-  font-family: Raleway sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 600;
   padding: 1.5rem;
   border-radius: 8px;
