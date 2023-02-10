@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/CSS/signup.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="login-card">
+      <div class="card-header">
+        <div class="log">Sign up</div>
+      </div>
+      <form id="form">
+        <div class="form-group">
+          <label for="username">First Name:</label>
+          <input
+            class="red_box"
+            required=""
+            name="username"
+            id="username"
+            type="text"
+            pattern="[A-Za-z]{1,32}"
+            title="Please Enter the valid name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="username">Last Name:</label>
+          <input
+            class="red_box"
+            required=""
+            name="username"
+            id="username_1"
+            type="text"
+            pattern="[A-Za-z]{1,32}"
+            title="Please Enter the valid name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="Email">Email:</label>
+          <input
+            class="red_box"
+            required
+            name="password"
+            id="email"
+            type="email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            class="red_box"
+            required=""
+            name="password"
+            id="password"
+            type="password"
+            title="Please Enter the correct password"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Confirm Password:</label>
+          <input
+            class="red_box"
+            required=""
+            name="password"
+            id="confirm_password"
+            type="password"
+          />
+        </div>
+        <div class="form-group">
+          <input value="Sign Up" type="submit" />
+        </div>
+      </form>
+    </div>
+
+    <script>
+      //   function userInfoSIgnup() {
+      //     event.preventDefault();
+      //     const user_signup = [];
+      //     const username = document.getElementById("username").value;
+      //     const email = document.getElementById("email").value;
+      //     const password = document.getElementById("password").value;
+      //     const confirm_password =
+      //       document.getElementById("confirm_password").value;
+
+      //     const signup = new Object();
+      //     signup.user_name = username;
+      //     signup.email = email;
+      //     signup.password = password;
+      //     signup.confirm_password = confirm_password;
+
+      //     user_signup.push(signup);
+      //     const str = JSON.stringify(user_signup);
+      //     localStorage.setItem("user_info", str);
+
+      //     if (password === confirm_password) {
+      //       window.location.href = "../index.html";
+      //     } else {
+      //       alert("confirm password is wrong");
+      //     }
+      //   }
+      let check_box;
+      let arr = [];
+      let checkPass;
+      let form = document.getElementById("form");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let userdata = {};
+        const username = document.getElementById("username").value;
+        const username_1 = document.getElementById("username_1").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const Confirm_password =
+          document.getElementById("confirm_password").value;
+
+        if (password !=  Confirm_password) {
+          checkPass = false;
+          alert("Password doesnot match");
+        }
+        if (password === Confirm_password) {
+          checkPass = true;
+        }
+
+        if (checkPass === true) {
+          const userTrim = username.trim();
+          const userTrim_1 = username_1.trim();
+          userdata["username"] = userTrim;
+          userdata["username_1"] = userTrim_1;
+          userdata["email"] = email;
+          userdata["password"] = password;
+          userdata["confirm_password"] = Confirm_password;
+          arr.push(userdata);
+
+          // if (password.length < 6) {
+          //   alert("Password must be at least 6 characters long.");
+          //   return false;
+          // }
+
+          if (window.localStorage.getItem("user") === null) {
+            window.localStorage.setItem("user", JSON.stringify(arr));
+          } else {
+            let local = window.localStorage.getItem("user");
+            let json = JSON.parse(local);
+            json.push(userdata);
+            window.localStorage.setItem("user", JSON.stringify(json));
+          }
+          window.location.href = "../pages/userinfo.html";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Dishes</title>
+
+    <link rel="stylesheet" href="../assets/CSS/reset.css" />
+    <link rel="stylesheet" href="../assets/CSS/globalStyles.css" />
+    <link rel="stylesheet" href="../assets/CSS/components.css" />
+</head>
+<body>
+    <section id="form" data-aos="fade-down">
+        <div class="container">
+          <h3 class="form-title">Add New Item</h3>
+          <div class="form-wrapper">
+            <form onsubmit="createDish()">
+              <div class="form-group">
+                <label for="firstName">Image URL</label>
+                <input type="text" id="imageURL" value="" placeholder="Image URL" name="first_name" required />
+              </div>
+              <div class="form-group">
+                <label for="firstName">Title</label>
+                <input type="text" id="title" value=""placeholder="Eg.Dosa" name="first_name" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Price</label>
+                <input type="text" id="price" value="" placeholder="Eg.60rs" name="last_name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Ratings</label>
+                <input type="text" id="rating" value="" placeholder="" name="email" required />
+              </div>
+             
+             <div>
+              <button type="submit" class="btn primary-btn" >Submit</button>
+              <a href="./menu.html" class="btn form-back"
+              >Back</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+
+
+      <script>
+        function createDish(){
+            const imageURL = document.getElementById("imageURL").value;
+            const title = document.getElementById("title").value;
+            const price = document.getElementById("price").value;
+            const rating = document.getElementById("rating").value;
+
+            console.log(imageURL,title,price,rating);
+        }
+
+
+      </script>
+</body>
+</html>

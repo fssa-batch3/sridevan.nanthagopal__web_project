@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- icons linked -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../assets/CSS/login.css" />
+
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="login-card">
+      <div class="card-header">
+        <div class="log">Login</div>
+      </div>
+      <form id="form">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input name="username" id="username1" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input name="password" id="password2" type="password" />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn primary-btn">Log in</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      //   function userInfoLogin() {
+      //     event.preventDefault();
+      //     const username = document.getElementById("username1").value;
+      //     const password = document.getElementById("password2").value;
+
+      //     const user_info = JSON.parse(localStorage.setItem("user"));
+      //     // const user_obj = JSON.parse(user_info);
+
+      //     // const user_find = user_obj.find(
+      //     //   (element) => element["username"] == username
+      //     // );
+
+      //     console.log(user_info[3]["username"]);
+
+      //     if (
+      //       user_info[3]["username"] == username
+      //       //   user_find["password"] == password
+      //     ) {
+      //       alert("Successfully Logged in");
+      //       window.location.href = "../index.html";
+      //     } else {
+      //       alert("Something went wrong");
+      //     }
+      //   }
+
+      let logIn = document.getElementById("form");
+      logIn.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let Data = localStorage.getItem("user");
+        let d_user_data = JSON.parse(Data);
+        let email = document.getElementById("username1").value;
+        let password = document.getElementById("password2").value;
+
+        let isTrue = false;
+
+        for (let i = 0; i < d_user_data.length; i++) {
+          console.log(d_user_data[i]);
+          let single_user = JSON.parse(localStorage.getItem("user"));
+          console.log(single_user[i]);
+          window.localStorage.setItem(
+            "details",
+            JSON.stringify(single_user[i])
+          );
+          if (
+            email === d_user_data[i].username &&
+            password === d_user_data[i].password
+          ) {
+            isTrue = true;
+            break;
+          } else {
+            isTrue = false;
+          }
+        }
+
+         //     if (
+      //       user_info[3]["username"] == username
+      //       //   user_find["password"] == password
+      //     ) {
+      //       alert("Successfully Logged in");
+      //       window.location.href = "../index.html";
+      //     } else {
+      //       alert("Something went wrong");
+      //     }
+      //   }
+        
+
+        if ((isTrue = true)) {
+          alert("Success");
+          window.location.href = "../index.html";
+        } else {
+          alert("failed");
+        }
+      });
+    </script>
+  </body>
+</html>
