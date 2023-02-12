@@ -104,6 +104,9 @@
       let arr = [];
       let checkPass;
       let form = document.getElementById("form");
+      let existData = JSON.parse(window.localStorage.getItem("user"));
+      let exitsUser = false;
+      // console.log(existData)
       form.addEventListener("submit", function (event) {
         event.preventDefault();
         let userdata = {};
@@ -114,7 +117,7 @@
         const Confirm_password =
           document.getElementById("confirm_password").value;
 
-        if (password !=  Confirm_password) {
+        if (password != Confirm_password) {
           checkPass = false;
           alert("Password doesnot match");
         }
@@ -136,16 +139,27 @@
           //   alert("Password must be at least 6 characters long.");
           //   return false;
           // }
-
-          if (window.localStorage.getItem("user") === null) {
-            window.localStorage.setItem("user", JSON.stringify(arr));
-          } else {
-            let local = window.localStorage.getItem("user");
-            let json = JSON.parse(local);
-            json.push(userdata);
-            window.localStorage.setItem("user", JSON.stringify(json));
+          if (existData !== null) {
+            exitsUser = existData.find(
+              (ExitsUsercheck) => ExitsUsercheck["email"] === email
+            );
+            console.log(exitsUser);
           }
-          window.location.href = "../pages/userinfo.html";
+
+          // console.log(exitsUser);
+          if (exitsUser) {
+            alert("user exists");
+          } else {
+            if (window.localStorage.getItem("user") === null) {
+              window.localStorage.setItem("user", JSON.stringify(arr));
+            } else {
+              let local = window.localStorage.getItem("user");
+              let json = JSON.parse(local);
+              json.push(userdata);
+              window.localStorage.setItem("user", JSON.stringify(json));
+            }
+            window.location.href = "../pages/userinfo.html";
+          }
         }
       });
     </script>
