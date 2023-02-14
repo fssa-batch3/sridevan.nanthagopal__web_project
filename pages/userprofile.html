@@ -4,29 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-    rel="icon"
-    type="image/png"
-    sizes="32x32"
-    href="../assets/images/Cinephile.png"
-  />
+    
     <title>User Profile</title>
     <link rel="stylesheet" href="../assets/CSS/userprofile.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto&display=swap"
-      rel="stylesheet"
-    />
+   
   </head>
   <body>
     <div class="wholeprofilecontainer">
-      <div class="userimg">
-        
-      </div>
       <div class="userdetails">
         <h1 class="profileh1">Profile Settings</h1>
-        <form action="homepage.html">
+        <form id="form">
           <div class="namesurflex">
             <div>
               <label for="name">First Name</label><br />
@@ -57,65 +44,133 @@
           <input
             type="number"
             class="mobilenumber"
-            id="mobilenumber"
+            id="mobilenumber" 
             placeholder=" enter your mobilenumber"
           /><br />
           <label for="addressline1">Date of Brith</label><br />
-          <input
-            type="date"
-            class="addressline1"
-            id="addressline1"
-          /><br />
-          <label for="postalcode">Password</label><br />
-          <input
-            type="number"
-            class="postalcode"
-            id="password"
-          /><br />
-          <label for="state">State</label><br />
+          <input type="date" class="addressline1" id="dob" /><br />
+          <label for="postalcode">Gender</label><br />
+          <select type="text" class="postalcode" id="gender">
+            <option value="">Please select any one</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="others">others</option>
+            <option value="NA">Not to answer</option></select
+          ><br />
+          <label for="state">Location</label><br />
           <input
             type="text"
             class="state"
-            id="state"
+            id="place"
             placeholder=" enter your State"
           /><br />
-          <div class="countrystateflex">
-            <div>
-              <label for="country">Country</label><br />
-              <input
-                type="text"
-                class="country"
-                id="country"
-                placeholder="Country"
-              /><br />
-            </div>
-            <div>
-              <label for="stateregion">State/Region</label><br />
-              <input
-                type="text"
-                class="stateregion"
-                id="stateregion"
-                placeholder="State/Region"
-              /><br />
-            </div>
-          </div>
           <button class="submit" type="submit">Submit</button>
-          
+          <button class="submit" type="delete" id="delete">Delete User</button>
         </form>
         <button class="submit" type="submit">Back</button>
       </div>
     </div>
     <script>
-      const user_details = JSON.parse(window.localStorage.getItem("details"))
-      console.log(user_details)
+      // const user_details = JSON.parse(window.localStorage.getItem("details"))
+      // console.log(user_details)
+      // const fname = document.getElementById("name");
+      // const lname = document.getElementById("surname");
+      // const mail = document.getElementById("emailid");
+      // const pass = document.getElementById("password");
+      // fname.value =  user_details["username"] ;
+      // lname.value =  user_details["username_1"] ;
+      // mail.value =  user_details["email"] ;
+      // pass.value  =  user_details["password"];
+
+      /////////////////////////////////////////////////////////////////////////////////
+
+      const user_email = JSON.parse(window.localStorage.getItem("details"));
+      const user_details = JSON.parse(window.localStorage.getItem("user"));
+      let get_obj = user_details.find(function (user_obj) {
+        let check_email = user_obj["email"];
+        if (user_email === check_email) {
+          return true;
+        }
+      });
+      console.log(get_obj);
       const fname = document.getElementById("name");
       const lname = document.getElementById("surname");
       const mail = document.getElementById("emailid");
-      const pass = document.getElementById("password");
-      fname.value =  user_details["username"] ;
-      lname.value =  user_details["username_1"] ;
-      mail.value =  user_details["email"] ;
-      pass.value  =  user_details["password"];
+      fname.value = get_obj["username"];
+      lname.value = get_obj["username_1"];
+      mail.value = user_email;
+      let form = document.getElementById("form");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let fname = document.getElementById("name").value;
+        let lname = document.getElementById("surname").value;
+        let mail = document.getElementById("emailid").value;
+        let phone = document.getElementById("mobilenumber").value;
+        let dob = document.getElementById("dob").value;
+        let gender = document.getElementById("gender").value;
+        let place = document.getElementById("place").value;
+        let new_data = {
+          fname,
+          lname,
+          mail,
+          phone,
+          dob,
+          place,
+          gender,
+        };
+        // if( mail.value != user_email ){
+        //   alert("You can't change the email-id")
+        //   return
+        // }
+        let updates = Object.assign(get_obj, new_data);
+        console.log(updates);
+        let index = user_details.indexOf(get_obj);
+        // console.log(index);
+        user_details[index] = updates;
+        localStorage.setItem("user", JSON.stringify(user_details));
+        alert("You have successfully updated your account details!");
+
+        location.reload()
+      });
+      // const user_email = JSON.parse(window.localStorage.getItem("details"))
+      let check = true;
+      const presend_details = JSON.parse(window.localStorage.getItem("user"));
+      let get_presend = user_details.find(function (user_obj) {
+        let check_email = user_obj["email"];
+        if (user_email === check_email) {
+          let fname1 = document.getElementById("name");
+          let lname1 = document.getElementById("surname");
+          let mail1 = document.getElementById("emailid");
+          let phone1 = document.getElementById("mobilenumber");
+          let dob1 = document.getElementById("dob");
+          let gender1 = document.getElementById("gender");
+          let place1 = document.getElementById("place");
+
+          fname1.value = user_obj["username"];
+          lname1.value = user_obj["username_1"];
+          mail1.value = user_obj["email"];
+          phone1.value = user_obj["phone"];
+          dob1.value = user_obj["dob"];
+          gender1.value = user_obj["gender"];
+          place1.value = user_obj["place"];
+        }
+      });
+
+      let delete_user = document.getElementById("delete");
+      delete_user.addEventListener("click", function (event) {
+        event.preventDefault();
+        let index = user_details.indexOf(get_obj);
+        let msg = confirm("Are you sure you want to delete this account");
+        if (msg != true) {
+          return
+        } else {
+          user_details.splice(index, 1);
+          console.log(user_details);
+          localStorage.setItem("user", JSON.stringify(user_details));
+          window.location.href = "./signup.html"; 
+        }
+      });
     </script>
+
   </body>
 </html>

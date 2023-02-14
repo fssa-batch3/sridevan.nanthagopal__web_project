@@ -78,7 +78,7 @@
           console.log(single_user[i]);
           window.localStorage.setItem(
             "details",
-            JSON.stringify(single_user[i])
+            JSON.stringify(single_user[i].email)
           );
           if (
             email === d_user_data[i].username &&

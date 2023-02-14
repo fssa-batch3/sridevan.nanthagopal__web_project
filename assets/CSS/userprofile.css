@@ -60,10 +60,16 @@ label {
     font-size: 15px;
     font-weight: 300;
 }
-input {
+input{
     width: 250px;
     height:30px;
     padding: 5px;
+}
+
+select{
+    width: 250px;
+    height:40px;
+    padding: 5px; 
 }
 .submit {
     width:150px;
