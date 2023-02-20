@@ -18,7 +18,7 @@ Sonar Cloud:
 Add unique user ID to user object (1 day)
 
 List of features
-1. CRUD
+1. user CRUD
 2. Dish CRUD 
    -Add dish (2days)
    -List dish
