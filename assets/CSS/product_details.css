@@ -12,14 +12,14 @@ body {
 }
 
 .container {
-    position: relative;
-    display: flex;
+      display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 900px;
     height: 600px;
     background: #d6e5d8;
     margin: 20px;
+    position: relative;
 }
 
 .container .imgBx {
@@ -45,7 +45,7 @@ body {
 
 .container .imgBx img {
     position: relative;
-    width: 700px;
+    width: 700%;
     transform: rotate(-30deg);
     left: -50px;
     transition: .9s linear;
@@ -59,6 +59,7 @@ body {
     height: 100%;
     box-sizing: border-box;
     padding: 40px;
+  
 }
 
 .container .details h2{
@@ -91,8 +92,8 @@ body {
     color: #26643b;
     float: left;
 }
-.container .details button {
-    background: #000;
+.primary-btn {
+    background: #26643b;
     color: #fff;
     border: none;
     outline: none;
@@ -104,14 +105,63 @@ body {
     font-weight: 600;
     border-radius: 40px;
     float: right;
+    transition: 0.3s;
+    
 }
 
 
+.close{
+    width: fit-content;
+    height: fit-content;
+    
+    position: absolute;
+    top: 7%;
+    left: 91%;
 
 
+   
+
+}
+
+.close img{
+    width: 40px;
 
 
+}
 
+.primary-btn:hover {
+  transform: scale(1.1);
+}
+
+.btn{
+    background: #3b413a;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 15px 20px;
+    margin-top: 5px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 40px;
+    float: right;
+    transition: 0.3s;
+    
+
+}
+
+.btn:hover {
+    transform: scale(1.1);
+  }
+
+
+    
+    
+    
+    
+    
+    
 
 
 /* responsive */
@@ -141,16 +191,9 @@ body {
         margin-left: 0;
         max-width: 100%;
     }
-}
 
-footer {
-    position: fixed;
-    right: 16px;
-    bottom: 12px;
-}
-
-footer a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 12px;
+    .close{
+        top: 4%;
+        left: 90%;
+    }
 }
