@@ -12,3 +12,17 @@ Wireframe: https://drive.google.com/drive/folders/1U4LOQxbuIXo_vAPxgAsW6xAGcr3eN
 
 Sonar Cloud:
 [![Quality Gate Status] : https://sonarcloud.io/project/overview?id=fssa-batch3_sridevan.nanthagopal__web_project
+
+
+
+Add unique user ID to user object (1 day)
+
+List of features
+1. CRUD
+2. Dish CRUD 
+   -Add dish (2days)
+   -List dish
+   -Dish details
+   -Update dish
+   -Close dish
+   -Delete dish
