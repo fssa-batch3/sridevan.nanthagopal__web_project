@@ -21,8 +21,8 @@ List of features
 1. user CRUD (completed)
 2. Dish CRUD 
    -Add dish (2days)
-   -List dish
-   -Dish details
-   -Update dish
-   -Close dish
+   -List dish (2days)
+   -Dish details(2days)
+   -Update dish(2days)
+   -Close dish (not stared)
    -Delete dish
