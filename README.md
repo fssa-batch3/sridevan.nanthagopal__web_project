@@ -22,6 +22,6 @@ List of features
 2. Dish CRUD 
    -Add dish (completed)
    -List dish (completed)
-   -Update dish(completed)
+   -Update dish(working)
    -Close dish (not stared)
    -Delete dish
