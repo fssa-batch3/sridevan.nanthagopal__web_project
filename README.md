@@ -24,4 +24,3 @@ List of features
    -List dish (completed)
    -Update dish(working)
    -Close dish (not stared)
-   -Delete dish (not stared)
