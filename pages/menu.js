@@ -100,7 +100,7 @@ let breakfast = [
   {
     image:
       "../assets/images/Instant Dosa From Leftover Rice (easy and crispy dosa) - Cooking Carnival.jfif",
-      altImage: "plain-dosa",
+    altImage: "plain-dosa",
     item_title: "Plain Roast",
     item_price: "$62",
     star_img: "../assets/images/4starrating.png",
@@ -221,9 +221,8 @@ let lunch = [
   },
 
   {
-    image:
-      "../assets/images/Poratta.jpeg",
-      altImage: "Poratta",
+    image: "../assets/images/Poratta.jpeg",
+    altImage: "Poratta",
     item_title: "Porotta",
     item_price: "$62",
     star_img: "../assets/images/4starrating.png",
@@ -263,11 +262,11 @@ let lunch = [
     item_title: "Egg Kothu Parotta",
     item_price: "$70",
     star_img: "../assets/images/4starrating.png",
-  }
+  },
 ];
 
 // let k = 6;
-for (let i = 0; i <= lunch.length -1; i++) {
+for (let i = 0; i <= lunch.length - 1; i++) {
   let dishgrid_item;
   dishgrid_item = document.createElement("div");
   dishgrid_item.setAttribute("class", "dishgrid-item");
@@ -280,7 +279,7 @@ for (let i = 0; i <= lunch.length -1; i++) {
 
   let item_img;
   item_img = document.createElement("img");
-  console.log(lunch[i]["image"])
+  console.log(lunch[i]["image"]);
   item_img.setAttribute("src", lunch[i]["image"]);
   item_img.setAttribute("alt", lunch[i]["altImage"]);
   dishgrid_item_img.append(item_img);
@@ -330,7 +329,7 @@ let dinner = [
   {
     image:
       "../assets/images/Instant Dosa From Leftover Rice (easy and crispy dosa) - Cooking Carnival.jfif",
-      altImage: "plain-dosa",
+    altImage: "plain-dosa",
     item_title: "Plain Roast",
     item_price: "$62",
     star_img: "../assets/images/4starrating.png",
@@ -371,7 +370,7 @@ let dinner = [
     item_price: "$70",
     star_img: "../assets/images/4starrating.png",
   },
- 
+
   {
     image: "../assets/images/Kothuporatta1.jpeg",
     altImage: "Kothuporatta1",
@@ -409,8 +408,13 @@ let dinner = [
   },
 ];
 
+let updates = JSON.parse(localStorage.getItem("new_card"));
 
-for (let i = 0; i <= dinner.length -1; i++) {
+for (let i = 0; i < updates.length; i++) {
+  dinner.push(updates[i]);
+}
+
+for (let i = 0; i <= dinner.length - 1; i++) {
   let dishgrid_item;
   dishgrid_item = document.createElement("div");
   dishgrid_item.setAttribute("class", "dishgrid-item");
@@ -425,7 +429,7 @@ for (let i = 0; i <= dinner.length -1; i++) {
   item_img = document.createElement("img");
   item_img.setAttribute("src", dinner[i]["image"]);
   item_img.setAttribute("alt", dinner[i]["altImage"]);
-  item_img.setAttribute("alt" , "")
+  item_img.setAttribute("alt", "");
   dishgrid_item_img.append(item_img);
 
   let dishgrid_item_info;
