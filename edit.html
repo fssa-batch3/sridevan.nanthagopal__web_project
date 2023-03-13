@@ -13,14 +13,14 @@
   <body>
     <section id="form" data-aos="fade-down">
       <div class="container">
-        <h3 class="form-title">Add New Item</h3>
+        <h3 class="form-title">Edit Item</h3>
         <div class="form-wrapper">
-          <form id="formDish">
+          <form id="formDish1">
             <div class="form-group">
               <label for="firstName">Image URL</label>
               <input
                 type="text"
-                id="imageURL"
+                id="imageURL1"
                 value=""
                 placeholder="Image URL"
                 name="first_name"
@@ -64,6 +64,7 @@
             <div>
               <button type="submit" class="btn primary-btn">Submit</button>
               <a href="./menu.html" class="btn form-back">Back</a>
+              <a href="#" class="btn form-back" id="delete-btn">Delete</a>
             </div>
           </form>
         </div>
@@ -71,34 +72,55 @@
     </section>
 
     <script>
-      let formDish = document.getElementById("formDish");
-      formDish.addEventListener("submit", function (event) {
+      let card = [];
+
+      if (localStorage.getItem("new_card") !== null) {
+        card = JSON.parse(localStorage.getItem("new_card"));
+      }
+
+      const formDish1 = document.getElementById("formDish1");
+      const deleteBtn = document.getElementById("delete-btn");
+      const urlParams = new URLSearchParams(window.location.search);
+      const menuId = urlParams.get("id");
+
+      const thisMenu = card.find((item) => item.id == menuId);
+
+      const menuIndex = card.indexOf(thisMenu);
+      console.log(menuIndex);
+      const image1 = document.getElementById("imageURL1");
+      const item_title = document.getElementById("title");
+      const item_price = document.getElementById("price");
+      const star_img = document.getElementById("rating");
+
+      image1.value = thisMenu.image;
+      item_title.value = thisMenu.item_title;
+      item_price.value = thisMenu.item_price;
+      star_img.value = thisMenu.star_img;
+
+      formDish1.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        let image = document.getElementById("imageURL").value;
-        let item_title = document.getElementById("title").value;
-        let item_price = document.getElementById("price").value;
-        let star_img = document.getElementById("rating").value;
-
-
-        let obj = {
-          id: Date.now(),
-          image,
-          item_title,
-          item_price,
-          star_img,
+        const updatedMenu = {
+          image: image1.value,
+          item_title: item_title.value,
+          item_price: item_price.value,
+          star_img: star_img.value,
         };
 
-        let card = [];
-
-        if (localStorage.getItem("new_card") != null) {
-          card = JSON.parse(localStorage.getItem("new_card"));
-        }
-        card.push(obj);
+        card[menuIndex] = updatedMenu;
 
         localStorage.setItem("new_card", JSON.stringify(card));
-        window.location.href = "./menu.html"
+        
+        location.reload();
       });
+      
+      deleteBtn.addEventListener("click",()=>{
+        
+        card.splice(card[menuIndex],1) 
+        localStorage.setItem("new_card", JSON.stringify(card));
+        window.location.href = "./pages/menu.html"
+
+      })
     </script>
   </body>
 </html>

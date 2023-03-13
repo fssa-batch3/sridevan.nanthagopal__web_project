@@ -42,7 +42,6 @@ for (let i = 0; i <= n; i++) {
   let dishgrid_item;
   dishgrid_item = document.createElement("div");
   dishgrid_item.setAttribute("class", "dishgrid-item");
-  console.log(dishgrid_item);
 
   let dishgrid_item_img;
   dishgrid_item_img = document.createElement("div");
@@ -162,7 +161,6 @@ for (let i = 0; i <= m; i++) {
   let dishgrid_item;
   dishgrid_item = document.createElement("div");
   dishgrid_item.setAttribute("class", "dishgrid-item");
-  console.log(dishgrid_item);
 
   let dishgrid_item_img;
   dishgrid_item_img = document.createElement("div");
@@ -270,7 +268,6 @@ for (let i = 0; i <= lunch.length - 1; i++) {
   let dishgrid_item;
   dishgrid_item = document.createElement("div");
   dishgrid_item.setAttribute("class", "dishgrid-item");
-  console.log(dishgrid_item);
 
   let dishgrid_item_img;
   dishgrid_item_img = document.createElement("div");
@@ -279,7 +276,6 @@ for (let i = 0; i <= lunch.length - 1; i++) {
 
   let item_img;
   item_img = document.createElement("img");
-  console.log(lunch[i]["image"]);
   item_img.setAttribute("src", lunch[i]["image"]);
   item_img.setAttribute("alt", lunch[i]["altImage"]);
   dishgrid_item_img.append(item_img);
@@ -319,6 +315,7 @@ for (let i = 0; i <= lunch.length - 1; i++) {
 
 let dinner = [
   {
+    id: Date.now(),
     image: "../assets/images/Idly.jpeg",
     altImage: "Idly",
     item_title: "Idly [2pcs]",
@@ -327,6 +324,7 @@ let dinner = [
   },
 
   {
+    id: Date.now(),
     image:
       "../assets/images/Instant Dosa From Leftover Rice (easy and crispy dosa) - Cooking Carnival.jfif",
     altImage: "plain-dosa",
@@ -336,6 +334,7 @@ let dinner = [
   },
 
   {
+    id: Date.now(),
     image: "../assets/images/oniondosa.jpeg",
     altImage: "oniondosa",
     item_title: "Onion Roast",
@@ -343,6 +342,7 @@ let dinner = [
     star_img: "../assets/images/4starrating.png",
   },
   {
+    id: Date.now(),
     image: "../assets/images/Uttapam.jpeg",
     altImage: "Uttapam",
     item_title: "Uttapam",
@@ -350,6 +350,7 @@ let dinner = [
     star_img: "../assets/images/3stars-rating.png",
   },
   {
+    id: Date.now(),
     image: "../assets/images/egg-uthappam.jpeg",
     altImage: "egguthappam",
     item_title: "Egg Uthapam",
@@ -357,6 +358,7 @@ let dinner = [
     star_img: "../assets/images/3stars-rating.png",
   },
   {
+    id: Date.now(),
     image: "../assets/images/podi-dosa.jpeg",
     altImage: "podidosa",
     item_title: "Podi Dosa",
@@ -364,6 +366,7 @@ let dinner = [
     star_img: "../assets/images/4starrating.png",
   },
   {
+    id: Date.now(),
     image: "../assets/images/kaldosa.jpeg",
     altImage: "kaldosa",
     item_title: "Kal Dosa",
@@ -372,6 +375,7 @@ let dinner = [
   },
 
   {
+    id: Date.now(),
     image: "../assets/images/Kothuporatta1.jpeg",
     altImage: "Kothuporatta1",
     item_title: "Veg Kothu Parotta",
@@ -379,6 +383,7 @@ let dinner = [
     star_img: "../assets/images/5starrating.png",
   },
   {
+    id: Date.now(),
     image: "../assets/images/eggkothu.jpeg",
     altImage: "eggkothu",
     item_title: "Egg Kothu Parotta",
@@ -386,6 +391,7 @@ let dinner = [
     star_img: "../assets/images/3stars-rating.png",
   },
   {
+    id: Date.now(),
     image: "../assets/images/Chappathi.jpg",
     altImage: "Chappathi",
     item_title: "Chappathi",
@@ -393,6 +399,7 @@ let dinner = [
     star_img: "../assets/images/3stars-rating.png",
   },
   {
+    id: Date.now(),
     image: "../assets/images/vegkothuchappathi.jpeg",
     altImage: "vegkothuchappathi",
     item_title: "Kothu Chappathi",
@@ -400,6 +407,7 @@ let dinner = [
     star_img: "../assets/images/3stars-rating.png",
   },
   {
+    id: Date.now(),
     image: "../assets/images/eggkothuchappathi.jpeg",
     altImage: "eggkothuchappathi",
     item_title: "Egg Chappathi",
@@ -416,9 +424,9 @@ for (let i = 0; i < updates.length; i++) {
 
 for (let i = 0; i <= dinner.length - 1; i++) {
   let dishgrid_item;
-  dishgrid_item = document.createElement("div");
+  dishgrid_item = document.createElement("a");
   dishgrid_item.setAttribute("class", "dishgrid-item");
-  console.log(dishgrid_item);
+  dishgrid_item.setAttribute("href", "../edit.html?id=" + dinner[i]["id"] );
 
   let dishgrid_item_img;
   dishgrid_item_img = document.createElement("div");
