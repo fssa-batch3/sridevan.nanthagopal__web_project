@@ -19,8 +19,15 @@ Add unique user ID to user object (1 day)
 
 List of features
 1. user CRUD (completed)
+
 2. Dish CRUD 
    -Add dish (completed)
    -List dish (completed)
    -Update dish(completed)
    -Close dish (working)
+
+3. Review CRUD(Not yet tested)
+   -Add Review (completed)
+   -List Review (completed)
+   -Update Review(completed)
+   -Close Review (completed)
