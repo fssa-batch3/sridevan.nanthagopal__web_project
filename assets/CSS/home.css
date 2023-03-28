@@ -595,3 +595,12 @@
     right: 220px;
   }
 }
+
+
+
+
+.user-logo{
+  width: 50px;
+  position: relative;
+  top: 17px;
+}
