@@ -199,4 +199,4 @@ The product details are updated.
 
 ### Expected Result:
 
-The product is Successfully deleted.
+The product is deleted Successfully.
