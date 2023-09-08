@@ -7,14 +7,14 @@ const navBgoverlayEl = document.querySelector('.nav-bgoverlay');
 const navOpen = () => {
     navList.classList.add('show');
     navBgoverlayEl.classList.add('active');
-    document.body.style='visbility: visible; height: 100vh; width:100vw; overflow: hidden;';
+    document.body.style='visibility: visible; height: 100vh; width:100vw; overflow: hidden;';
 
 }
 
 const navClose = () => {
     navList.classList.remove('show');
     navBgoverlayEl.classList.remove('active');
-    document.body.style='visbility: visible; height: initial; width:100%; overflow-x: hidden;  ';
+    document.body.style='visibility: visible; height: initial; width:100%; overflow-x: hidden;  ';
 
 }
 
